@@ -122,6 +122,17 @@ public class QueryUtils {
                 String section = currentNews.getString("sectionName");
                 String date = currentNews.getString("webPublicationDate");
                 String url = currentNews.getString("webUrl");
+
+                /**JSONArray tagsArray = currentNews.getJSONArray("tags");
+
+                if(tagsArray.length() == 0) {
+                    author = null;
+                } else {
+                    for(int j = 0; j < tagsArray.length(); j++) {
+                        JSONObject firstObject = tagsArray.getJSONObject(j);
+                        author += firstObject.getString("webTitle") + ". ";
+                    }
+                }**/
                 News newsObject = new News(title, author, section, date, url);
                 news.add(newsObject);
             }
