@@ -79,9 +79,6 @@ public class QueryUtils {
                 urlConnection.disconnect();
             }
             if (inputStream != null) {
-                // Closing the input stream could throw an IOException, which is why
-                // the makeHttpRequest(URL url) method signature specifies than an IOException
-                // could be thrown.
                 inputStream.close();
             }
         }
@@ -123,7 +120,7 @@ public class QueryUtils {
                 String date = currentNews.getString("webPublicationDate");
                 String url = currentNews.getString("webUrl");
 
-                /**JSONArray tagsArray = currentNews.getJSONArray("tags");
+                JSONArray tagsArray = currentNews.getJSONArray("tags");
 
                 if(tagsArray.length() == 0) {
                     author = null;
@@ -132,7 +129,7 @@ public class QueryUtils {
                         JSONObject firstObject = tagsArray.getJSONObject(j);
                         author += firstObject.getString("webTitle") + ". ";
                     }
-                }**/
+                }
                 News newsObject = new News(title, author, section, date, url);
                 news.add(newsObject);
             }
