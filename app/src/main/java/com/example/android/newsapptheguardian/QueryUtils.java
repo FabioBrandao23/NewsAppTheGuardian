@@ -22,7 +22,8 @@ public class QueryUtils {
 
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    private QueryUtils(){}
+    private QueryUtils() {
+    }
 
     public static List<News> fetchNewsData(String requestUrl) {
         URL url = createUrl(requestUrl);
@@ -99,9 +100,9 @@ public class QueryUtils {
         return output.toString();
     }
 
-    private static List<News> extractDataFromJson (String newsJSON) {
+    private static List<News> extractDataFromJson(String newsJSON) {
 
-        if(TextUtils.isEmpty(newsJSON)){
+        if (TextUtils.isEmpty(newsJSON)) {
             return null;
         }
 
@@ -122,10 +123,10 @@ public class QueryUtils {
 
                 JSONArray tagsArray = currentNews.getJSONArray("tags");
 
-                if(tagsArray.length() == 0) {
+                if (tagsArray.length() == 0) {
                     author = null;
                 } else {
-                    for(int j = 0; j < tagsArray.length(); j++) {
+                    for (int j = 0; j < tagsArray.length(); j++) {
                         JSONObject firstObject = tagsArray.getJSONObject(j);
                         author += firstObject.getString("webTitle") + ". ";
                     }

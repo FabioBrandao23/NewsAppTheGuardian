@@ -22,7 +22,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>>{
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
 
     public static final int NEWS_LOADER_ID = 1;
     public static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?";
@@ -70,14 +70,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
     }
 
-
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         String searchFor = sharedPrefs.getString(getString(R.string.settings_search_for_key), getString(R.string.settings_search_for_default));
-        String orderBy  = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
+        String orderBy = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
 
